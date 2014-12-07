@@ -8,7 +8,7 @@ use Symfony\Component\EventDispatcher\Event;
 use Symfony\Component\HttpFoundation\Request;
 
 /**
- * Event used to store EventEntitys
+ * Event used to store Event Entities
  *
  * @author Mike Yudin <mikeyudin@gmail.com>
  */

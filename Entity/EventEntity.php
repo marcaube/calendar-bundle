@@ -1,4 +1,5 @@
 <?php
+
 namespace ADesigns\CalendarBundle\Entity;
 
 /**
@@ -6,7 +7,6 @@ namespace ADesigns\CalendarBundle\Entity;
  *
  * @author Mike Yudin <mikeyudin@gmail.com>
  */
-
 class EventEntity
 {
     /**
@@ -59,6 +59,12 @@ class EventEntity
      */
     protected $otherFields = array();
 
+    /**
+     * @param string    $title
+     * @param \DateTime $startDatetime
+     * @param \DateTime $endDatetime
+     * @param bool      $allDay
+     */
     public function __construct($title, \DateTime $startDatetime, \DateTime $endDatetime = null, $allDay = false)
     {
         $this->title = $title;
@@ -118,91 +124,181 @@ class EventEntity
         return $event;
     }
 
+    /**
+     * @param mixed $id
+     *
+     * @return $this
+     */
     public function setId($id)
     {
         $this->id = $id;
+
+        return $this;
     }
 
+    /**
+     * @return mixed
+     */
     public function getId()
     {
         return $this->id;
     }
 
+    /**
+     * @param string $title
+     *
+     * @return $this
+     */
     public function setTitle($title)
     {
         $this->title = $title;
+
+        return $this;
     }
 
+    /**
+     * @return string
+     */
     public function getTitle()
     {
         return $this->title;
     }
 
+    /**
+     * @param string $url
+     *
+     * @return $this
+     */
     public function setUrl($url)
     {
         $this->url = $url;
+
+        return $this;
     }
 
+    /**
+     * @return string
+     */
     public function getUrl()
     {
         return $this->url;
     }
 
+    /**
+     * @param string $color
+     *
+     * @return $this
+     */
     public function setBgColor($color)
     {
         $this->bgColor = $color;
+
+        return $this;
     }
 
+    /**
+     * @return string
+     */
     public function getBgColor()
     {
         return $this->bgColor;
     }
 
+    /**
+     * @param string $color
+     *
+     * @return $this
+     */
     public function setFgColor($color)
     {
         $this->fgColor = $color;
+
+        return $this;
     }
 
+    /**
+     * @return string
+     */
     public function getFgColor()
     {
         return $this->fgColor;
     }
 
+    /**
+     * @param string $class
+     *
+     * @return $this
+     */
     public function setCssClass($class)
     {
         $this->cssClass = $class;
+
+        return $this;
     }
 
+    /**
+     * @return string
+     */
     public function getCssClass()
     {
         return $this->cssClass;
     }
 
+    /**
+     * @param \DateTime $start
+     *
+     * @return $this
+     */
     public function setStartDatetime(\DateTime $start)
     {
         $this->startDatetime = $start;
+
+        return $this;
     }
 
+    /**
+     * @return \DateTime
+     */
     public function getStartDatetime()
     {
         return $this->startDatetime;
     }
 
+    /**
+     * @param \DateTime $end
+     *
+     * @return $this
+     */
     public function setEndDatetime(\DateTime $end)
     {
         $this->endDatetime = $end;
+
+        return $this;
     }
 
+    /**
+     * @return \DateTime|null
+     */
     public function getEndDatetime()
     {
         return $this->endDatetime;
     }
 
+    /**
+     * @param bool $allDay
+     *
+     * @return $this
+     */
     public function setAllDay($allDay = false)
     {
         $this->allDay = (boolean) $allDay;
+
+        return $this;
     }
 
+    /**
+     * @return bool
+     */
     public function getAllDay()
     {
         return $this->allDay;
@@ -210,22 +306,28 @@ class EventEntity
 
     /**
      * @param string $name
-     * @param string $value
+     * @param mixed  $value
+     *
+     * @return $this
      */
     public function addField($name, $value)
     {
         $this->otherFields[$name] = $value;
+
+        return $this;
     }
 
     /**
      * @param string $name
+     *
+     * @return $this
      */
     public function removeField($name)
     {
-        if (!array_key_exists($name, $this->otherFields)) {
-            return;
+        if (array_key_exists($name, $this->otherFields)) {
+            unset($this->otherFields[$name]);
         }
 
-        unset($this->otherFields[$name]);
+        return $this;
     }
 }
