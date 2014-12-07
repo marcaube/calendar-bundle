@@ -1,0 +1,14 @@
+# Managed by Composer
+/vendor/
+
+# PHPUnit
+/phpunit.xml
+
+# Composer PHAR
+/composer.phar
+
+# Checkstyle fixer PHAR
+/php-cs-fixer.phar
+
+# Let the lib users decide on version lock
+composer.lock

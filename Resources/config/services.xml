@@ -8,5 +8,5 @@
         <parameter key="fullcalendar.event.class">ADesigns\CalendarBundle\Entity\EventEntity</parameter>
         <parameter key="fullcalendar.loader.event">calendar.load_events</parameter>
     </parameters>
-    
+
 </container>
